@@ -1,0 +1,106 @@
+@font-face {
+    font-family: "Roboto";
+    src: url('fonts/roboto/Roboto-Regular.eot');
+    src: url('fonts/roboto/Roboto-Regular.eot') format('embedded-opentype'),
+    url('fonts/roboto/Roboto-Regular.woff2') format('woff2'),
+    url('fonts/roboto/Roboto-Regular.woff') format('woff'),
+    url('fonts/roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "noto-sans-thai";
+    src: url('fonts/notosansthai/notosansthai-Regular.eot');
+    src: url('fonts/notosansthai/notosansthai-Regular.eot') format('embedded-opentype'),
+    url('fonts/notosansthai/notosansthai-Regular.woff2') format('woff2'),
+    url('fonts/notosansthai/notosansthai-Regular.woff') format('woff'),
+    url('fonts/notosansthai/notosansthai-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+}
+
+@font-face {
+    font-family: 'noto-sans-thai';
+    unicode-range: U+0E00–U+0E7F;
+}
+
+h1, h2, h3, h4, h5, h6, a, li, p, td, body {
+    font-family: 'Roboto', 'noto-sans-thai';
+}
+
+body {
+    font-size: 16px;                   
+    background-color: #fff5f6;
+    color: #4a3b3c;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #d4a5b8;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+h2, h3, h4{
+    color: #e8b4b8;
+}
+
+.content {
+    background-color: #ffffff;
+    padding: 30px;
+    margin: auto;
+    max-width: 800px;
+    border-radius: 12px;
+    border: 2px solid #f6d6de; 
+    box-shadow: 0 8px 20px rgba(246, 214, 222, 0.3);
+}
+
+a {
+    color: #d4a5b8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #e8b4b8;
+}
+
+#education-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+#education-table th {
+    background-color: #f6d6de;
+    color:#6b5257;
+    font-weight: bold;
+    text-align: center;
+    padding: 13px;
+    border: 1px solid #fae5e9;
+}
+
+#education-table td {
+    padding: 12px;
+    border: 1px solid #fae5e9;
+    text-align: center;
+}
+
+#education-table tr:nth-child(even) {
+    background-color: #fff9fa;
+}
+
+.center {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin: 20px 0;
+}
