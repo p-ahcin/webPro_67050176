@@ -51,8 +51,20 @@ function saveData() {
   localStorage.setItem('smartEventData', JSON.stringify(events));
 }
 
-function renderEvents(data) {
+function updateStats(data) {
+  const totalEvents = data.length;
+  const totalRegistered = data.filter(event => event.isRegistered === true).length;
+  let totalAvailable = 0;
+  data.forEach(event => {
+    totalAvailable += Number(event.seats);
+  });
+  
+  document.getElementById('totalEvents').textContent = totalEvents
+  document.getElementById('totalRegistered').textContent = totalRegistered;
+    document.getElementById('totalAvailable').textContent = totalAvailable;
+}
 
+function renderEvents(data) {
   const container = document.getElementById('eventContainer');
   container.innerHTML = '';
 
@@ -88,6 +100,7 @@ function renderEvents(data) {
     `;
     container.innerHTML += cardHTML
   });
+  updateStats(data);
 }
 
 function applyFilters() {
