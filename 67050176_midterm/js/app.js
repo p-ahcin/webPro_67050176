@@ -59,9 +59,9 @@ function updateStats(data) {
     totalAvailable += Number(event.seats);
   });
   
-  document.getElementById('totalEvents').textContent = totalEvents
+  document.getElementById('totalEvents').textContent = totalEvents;
   document.getElementById('totalRegistered').textContent = totalRegistered;
-    document.getElementById('totalAvailable').textContent = totalAvailable;
+  document.getElementById('totalAvailable').textContent = totalAvailable;
 }
 
 function renderEvents(data) {
@@ -84,12 +84,11 @@ function renderEvents(data) {
     }
 
     const cardHTML = `
-      <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 8px;">
+      <div class="event-card">
         <h3 style="margin: 0 0 10px 0;">${event.title}</h3>
         <p><strong>ประเภท:</strong> ${event.category}</p>
         <p><strong>วิทยากร:</strong> ${event.speaker}</p>
         <p><strong>วันที่จัดงาน:</strong> ${event.date}</p>
-        <!-- เปลี่ยนสีตัวเลข ถ้าเต็มให้เป็นสีแดง -->
         <p><strong>ที่นั่งว่าง:</strong> <span style="color: ${isFull ? 'red' : 'blue'};">${event.seats}</span></p>
         <p>${event.description}</p>
         
@@ -98,7 +97,7 @@ function renderEvents(data) {
         </button>
       </div>
     `;
-    container.innerHTML += cardHTML
+    container.innerHTML += cardHTML;
   });
   updateStats(data);
 }
@@ -109,7 +108,7 @@ function applyFilters() {
   const sortValue = document.getElementById('sortBy').value;
 
   let filterEvents = events.filter (event => {
-    const matchText = event.title.toLocaleLowerCase().includes(searchText);
+    const matchText = event.title.toLocaleLowerCase().includes(searchText) || event.speaker.toLocaleLowerCase().includes(searchText);
     const matchCategory = categoryValue === 'all' || event.category.toLocaleLowerCase() === categoryValue;
     return matchText && matchCategory;
   });
@@ -126,12 +125,6 @@ function applyFilters() {
   renderEvents(filterEvents);
 }
 
-document.querySelector('.btnDarkMode').addEventListener('click', () => {
-  const isDark = document.body.style.backgroundColor === 'rgb(34, 34, 34)';
-  document.body.style.backgroundColor = isDark ? 'white' : 'rgb(34, 34, 34)';
-  document.body.style.color = isDark ? 'black' : 'white';
-});
-
 function registerEvent(eventId) {
   const index = events.findIndex(e => e.id == eventId);
 
@@ -142,11 +135,10 @@ function registerEvent(eventId) {
 
       saveData();
       applyFilters();
-      alert('ลงทะเบียนสำเร็จ')
+      alert('ลงทะเบียนสำเร็จ');
     }
   }
 }
-
 
 // Run Application
 function initApp() {
@@ -171,6 +163,50 @@ function initApp() {
       localStorage.removeItem('smartEventData');
       location.reload();
     }
+  });
+
+  document.querySelector('.btnDarkMode').addEventListener('click', function() {
+    document.body.classList.toggle('darkTheme');
+    const isDark = document.body.classList.contains('darkTheme');
+    this.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+  });
+
+  const formSection = document.getElementById('eventDetailSection');
+  formSection.style.display = 'none';
+
+  document.querySelector('.btnNewEvent').addEventListener('click', () => {
+    formSection.style.display = 'block';
+  });
+  document.getElementById('btnCloseForm').addEventListener('click', () => {
+    formSection.style.display = 'none';
+  });
+  document.getElementById('btnCancel').addEventListener('click', () => {
+    formSection.style.display = 'none';
+  });
+
+  document.getElementById('addEventForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const categorySelect = document.getElementById('addEventCategory');
+    const categoryText = categorySelect.options[categorySelect.selectedIndex].text;
+    const newEvent = {
+      id: events.length > 0 ? Math.max(...events.map(e => e.id)) + 1 : 1,
+      title: document.getElementById('eventName').value,
+      category: categoryText,
+      speaker: document.getElementById('eventSpeaker').value,
+      date: document.getElementById('eventDate').value,
+      seats: Number(document.getElementById('eventSeats').value),
+      description: document.getElementById('eventDetails').value,
+      isRegistered: false 
+    };
+
+    events.push(newEvent);
+    saveData();
+    document.getElementById('searchForm').reset();
+    applyFilters();
+    this.reset();
+    formSection.style.display = 'none';
+    alert('เพิ่มกิจกรรมใหม่สำเร็จ');
   });
 }
 
