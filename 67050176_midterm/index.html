@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Event Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Event Hub</h1>
+        <nav>
+            <button type="button" class="btnDarkMode">Dark Mode</button>
+            <button type="button" class="btnNewEvent">Add New Event</button>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <h2>สถิติภาพรวม</h2>
+            <p>กิจกรรมทั้งหมด: <span id="totalEvents">0</span></p>
+            <p>ลงทะเบียนแล้ว: <span id="totalRegistered"></span> </p>
+            <p>ที่นั่งว่างรวม: <span id="totalAvailable"></span></p>
+        </aside>
+        <section id="searchSection">
+            <h2>ค้นหาและกรองข้อมูล</h2>
+            <form id="searchForm">
+                <div class="form-group">
+                    <label>ค้นหากิจกรรม / วิทยากร:</label>
+                    <input type="text" id="searchInput" placeholder="พิมพ์คำค้นหา...">
+                </div>
+                <div class="form-group">
+                    <label>ประเภทกิจกรรม:</label>
+                    <select id="eventCategory">
+                        <option value="all">ทั้งหมด (All)</option>
+                        <option value="tech">Tech</option>
+                        <option value="business">Business</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>เรียงลำดับตาม: </label>
+                    <select id="sortBy">
+                        <option value="date-asc">วันที่ (น้อยไปมาก)</option>
+                        <option value="seats-asc">ที่นั่งว่าง (น้อยไปมาก)</option>
+                        <option value="seats-desc">ที่นั่งว่าง (มากไปน้อย)</option>
+                    </select>
+                </div>
+                <button type="reset" id="btnResetSearch">คืนค่าข้อมูลเริ่มต้น</button>
+            </form>
+        </section>
+        <section id="eventListSection">
+            <h2>รายการกิจกรรมละเวิร์คช็อป</h2>
+            <div id="eventContainer">
+
+            </div>
+        </section>
+        <section id="eventDetailSection">
+            <h3>เพิ่มกิจกรรมใหม่ (Admin Only)</h3>
+            <form id="addEventForm">
+                <button type="button" id="btnCloseForm">x</button>
+                <div class="form-group">
+                    <label>ชื่อกิจกรรม *</label>
+                    <input type="text" id="eventName" required>
+                </div>
+                <div class="form-group">
+                    <label>ประเภท *</label>
+                    <select id="addEventCategory" required>
+                        <option value="all">ทั้งหมด (All)</option>
+                        <option value="tech">Tech</option>
+                        <option value="business">Business</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>วิทยากร *</label>
+                    <input type="text" id="eventSpeaker" required>
+                </div>
+                <div class="form-group">
+                    <label>วันที่จัดงาน *</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+                <div class="form-group">
+                    <label>จำนวนที่นั่งเปิดรับ *</label>
+                    <input type="number" id="eventSeats" required>
+                </div>
+                <div class="form-group">
+                    <label>รายละเอียดกิจกรรม *</label>
+                    <textarea id="eventDetails" required></textarea>
+                </div>
+                <button type="button" id="btnCancel">ยกเลิก</button>
+                <button type="submit" id="btnSubmitEvent">บันทึกกิจกรรม</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        2026 CS Midterm Examination - Web Programming
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

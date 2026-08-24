@@ -1,0 +1,27 @@
+/* ตกแต่งพื้นหลังและตัวอักษรของทั้งหน้าเว็บ */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: lightgray;
+    margin: 20px;
+}
+
+/* ใช้ Class Selector ตกแต่งกล่องเนื้อหาให้อยู่ตรงกลางและดูเป็นสัดส่วน[cite: 3] */
+.container {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+    width: 350px;
+}
+
+/* จัดระยะห่างของแต่ละช่องกรอกข้อมูล */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* ตกแต่งพื้นที่แสดงผลลัพธ์โดยใช้ ID Selector[cite: 3] */
+#resultArea {
+    padding: 10px;
+    background-color: #e0f7fa;
+    border: 1px solid #00acc1;
+    color: #333333;
+}
