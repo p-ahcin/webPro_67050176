@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div class="top-bar">
+          <div class="title-row">
+            <span class="title-icon">🌤️</span>
+
+            <div>
+              <h1>Weather Dashboard</h1>
+              <p class="subtitle">ตรวจสอบสภาพอากาศและพยากรณ์ล่วงหน้า</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <div class="input-wrapper">
+            <span class="search-icon">🔍</span>
+
+            <input
+              id="cityInput"
+              type="text"
+              placeholder="ค้นหาเมือง เช่น Bangkok, Chiang Mai..."
+              value="Bangkok"
+            />
+          </div>
+
+          <button id="searchBtn">ค้นหา</button>
+        </div>
+
+        <div class="message-area">
+          <p id="loading" class="loading"></p>
+          <p id="errorMessage" class="error-message"></p>
+        </div>
+      </header>
+
+      <section class="current-card">
+        <div class="current-main">
+          <div id="currentIcon" class="weather-icon large">☀️</div>
+          <div>
+            <div id="currentTemp" class="current-temp">--°C</div>
+            <div id="currentCity">กำลังโหลด...</div>
+            <div id="currentDescription" class="muted">--</div>
+          </div>
+        </div>
+
+        <div class="current-details">
+          <div>
+            <span class="detail-icon">💧</span>
+            <span class="detail-label">ความชื้น</span>
+            <strong id="humidity">--%</strong>
+          </div>
+          <div>
+            <span class="detail-icon">💨</span>
+            <span class="detail-label">ความเร็วลม</span>
+            <strong id="wind">-- km/h</strong>
+          </div>
+          <div>
+            <span class="detail-icon">🌡️</span>
+            <span class="detail-label">รู้สึกเหมือน</span>
+            <strong id="feelsLike">--°C</strong>
+          </div>
+          <div>
+            <span class="detail-icon">◉</span>
+            <span class="detail-label">ความกดอากาศ</span>
+            <strong id="pressure">-- hPa</strong>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>พยากรณ์อากาศ 5 วัน (ล่วงหน้า)</h2>
+        <div id="forecastCards" class="forecast-grid"></div>
+      </section>
+
+      <section>
+        <div class="chart-heading">
+          <h2>กราฟอุณหภูมิรายวัน</h2>
+          <div class="legend">
+            <span><i class="legend-box max"></i> สูงสุด</span>
+            <span><i class="legend-box min"></i> ต่ำสุด</span>
+          </div>
+        </div>
+        <div id="temperatureChart" class="chart"></div>
+      </section>
+
+      <footer class="footer">ข้อมูลสภาพอากาศ: Open-Meteo</footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
