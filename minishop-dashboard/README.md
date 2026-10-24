@@ -128,16 +128,3 @@ minishop-dashboard/
 ├── package-lock.json      # ล็อกเวอร์ชัน dependencies
 └── vite.config.js         # React และ Tailwind plugins
 ```
-
-## ตรวจสอบก่อนส่งงาน
-
-1. เปิดหน้าร้านทุกหน้า รวม `/products/999` และ URL ที่ไม่มี Route
-2. เพิ่ม Mouse ราคา 450 แก้เป็น 490 แล้วลบ โดยตรวจทั้งตารางและ API; เก็บภาพ CRUD ทั้ง 4 Operation สำหรับ Lab10
-3. ตรวจชื่อว่าง ราคา 0 และราคาติดลบ ทั้งโหมดเพิ่มและแก้ไข ต้องมีข้อความเตือนและไม่บันทึก
-4. ตรวจ Cancel / Esc ของ Modal และการยกเลิกคำยืนยันลบ ต้องไม่เปลี่ยนข้อมูล
-5. กลับ Dashboard หลัง CRUD แล้วตรวจ Summary Cards ให้ตรงกับ API
-6. สลับ Light/Dark Mode และรีเฟรช ธีมต้องคงเดิม โดยบันทึกด้วยคีย์ `minishop-theme` ใน `localStorage`
-7. ทดสอบหน้าจอกว้าง 375, 768 และ 1440 พิกเซล รวมตารางเลื่อนแนวนอนและ Modal ที่เลื่อนได้
-8. ตรวจ Loading / Error / Empty State และรัน `npm run build`
-
-หากหน้า Admin โหลดไม่ได้ ให้ตรวจว่า JSON Server ยังทำงานและเปิด `/products` ที่พอร์ต 3001 ได้ แล้วกด Try Again หรือ Retry ส่วนการ deploy ไปยัง static hosting ต้องจัดเตรียม API และการรองรับเส้นทาง BrowserRouter เพิ่มต่างหาก
