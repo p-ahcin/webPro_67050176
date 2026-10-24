@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "title": "Laptop",
+      "price": 12900,
+      "category": "Computer",
+      "description": "A lightweight laptop for study and everyday work.",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Headphones",
+      "price": 1290,
+      "category": "Audio",
+      "description": "Comfortable headphones for music and calls."
+    },
+    {
+      "id": 3,
+      "title": "Backpack",
+      "price": 890,
+      "category": "Fashion",
+      "description": "A practical backpack for school or travel."
+    },
+    {
+      "id": 4,
+      "title": "Smart Watch",
+      "price": 2990,
+      "category": "Gadget",
+      "description": "A smart watch for daily activity and notifications."
+    }
+  ]
+}
