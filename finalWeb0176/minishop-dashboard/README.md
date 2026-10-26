@@ -16,7 +16,7 @@ npm ci
 npm run dev
 ```
 
-เปิด URL ที่ Terminal แสดง โดยทั่วไปคือ [http://localhost:5173](http://localhost:5173)
+เปิด URL ที่ Terminal แสดง โดยทั่วไปคือ [http://localhost:5Sh173](http://localhost:5173)
 หากพอร์ตถูกใช้งาน Vite อาจเลือกพอร์ตอื่น
 แอปเรียก Public API โดยตรง จึงใช้เพียง Terminal เดียว
 
