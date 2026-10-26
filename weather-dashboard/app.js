@@ -167,8 +167,6 @@ function displayChart(data) {
 
   const maxValue = Math.max(...daily.temperature_2m_max);
   const minValue = Math.min(...daily.temperature_2m_min);
-
-  // เว้นขอบล่างเล็กน้อย
   const chartMin = Math.max(
     0,
     Math.floor(minValue - 5)

@@ -1,1 +1,13 @@
 /Document/
+
+node_modules/
+dist/
+*.log
+*.local
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
